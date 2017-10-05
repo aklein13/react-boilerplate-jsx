@@ -1,4 +1,4 @@
-# React Boilerplate on Typescript
+# React Boilerplate without Typescript
 
 # Instruction:
 1. git clone
@@ -7,6 +7,5 @@
 4. npm start / yarn start
 
 # Includes:
-- Typescript
 - SASS
 - Redux
