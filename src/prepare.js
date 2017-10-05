@@ -5,7 +5,7 @@ import {routerReducer, syncHistoryWithStore} from 'react-router-redux';
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
 
 /* React Router */
-import reactRouter, {hashHistory, browserHistory} from 'react-router';
+import {hashHistory, browserHistory} from 'react-router';
 import ReduxPromise from 'redux-promise';
 /* Reducers */
 import {createLogger} from 'redux-logger';

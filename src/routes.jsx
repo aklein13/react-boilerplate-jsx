@@ -1,5 +1,4 @@
-/* React */
-import * as React from 'react';
+import React from 'react';
 /* React Router */
 import {Provider} from 'react-redux';
 import {IndexRoute, Router} from 'react-router';

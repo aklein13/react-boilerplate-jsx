@@ -5,7 +5,6 @@ import {history} from '../prepare';
 
 let MediaQuery = require('react-responsive');
 
-
 class Layout extends React.Component {
   constructor(props) {
     super(props);
@@ -52,7 +51,7 @@ class Layout extends React.Component {
         </section>
         <footer>
         </footer>
-        {this.mediaCheck()}
+        {/*{this.mediaCheck()}*/}
       </div>
     );
   };

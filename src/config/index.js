@@ -1,4 +1,3 @@
-/* Default config for develope enviroment */
 let config = {
   /* React router history backend */
   historyBackend: 'hashHistory',

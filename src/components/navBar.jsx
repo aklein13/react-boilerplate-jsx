@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import './layout.scss';
 import {Link} from 'react-router';
 
