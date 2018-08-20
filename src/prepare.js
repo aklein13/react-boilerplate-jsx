@@ -29,11 +29,12 @@ const logger = createLogger({
 function configureStore({}) {
   // Initial the redux devtools for Chrome
   // https://github.com/zalmoxisus/redux-devtools-extension/
-  const createdStore = createStore(reducer, {},
-    compose(
-      applyMiddleware(logger, ReduxPromise, thunk),
-      window.devToolsExtension ? window.devToolsExtension() : (f) => f)
-  );
+  const createdStore = process.env.NODE_ENV === 'production'
+    ? createStore(reducer, initialState, compose(applyMiddleware(ReduxPromise, thunk)))
+    : createStore(reducer, initialState,
+      compose(applyMiddleware(logger, ReduxPromise, thunk),
+        window.devToolsExtension ? window.devToolsExtension() : (f) => f)
+    );
 
   const {hot} = module;
   if (hot) {
