@@ -1,11 +1,13 @@
-# React Boilerplate without Typescript
+# React JS Boilerplate
 
 # Instruction:
 1. git clone
 2. yarn
-3. npm run buildvendor
-4. npm start / yarn start
+3. yarn buildvendor
+4. yarn start
 
 # Includes:
-- SASS
+- React
 - Redux
+- SASS
+- Webpack

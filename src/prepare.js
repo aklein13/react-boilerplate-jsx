@@ -8,7 +8,7 @@ import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
 import {hashHistory, browserHistory} from 'react-router';
 import ReduxPromise from 'redux-promise';
 /* Reducers */
-import {createLogger} from 'redux-logger';
+import {logger} from 'redux-logger';
 
 // const reducers = require('./reducers');
 import thunk from 'redux-thunk';
@@ -19,10 +19,6 @@ import config from './config';
 const reducer = combineReducers({
   routing: routerReducer,
   auth,
-});
-
-const logger = createLogger({
-  // ...options
 });
 
 /* Initial the store */

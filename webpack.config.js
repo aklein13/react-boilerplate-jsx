@@ -1,8 +1,8 @@
-const path              = require('path');
-const webpack           = require('webpack');
-const PolyfillsPlugin   = require('webpack-polyfill-service-plugin');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
+  mode: 'development',
   entry: {
     app: [
       'react-hot-loader/patch',
@@ -16,12 +16,6 @@ module.exports = {
   },
   devtool: 'eval',
   plugins: [
-    new PolyfillsPlugin({
-      minify: true,
-      features: {
-        "fetch": {flags: ['always', 'gated']}
-      }
-    }),
     new webpack.DllReferencePlugin({
       context: __dirname,
       manifest: require('./manifest.json'),
@@ -40,16 +34,7 @@ module.exports = {
     host: '0.0.0.0',
     port: 8080
   },
-  // module: {
-  //   loaders: [{
-  //     exclude: /node_modules/,
-  //     loader: 'babel-loader',
-  //     query: {
-  //       presets: ['react', 'es2015', 'stage-1']
-  //     }
-  //   }]
-  // },
-   module: {
+  module: {
     rules: [
       {
         test: /.*\.json$/,
