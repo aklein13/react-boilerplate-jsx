@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 const isProduction = process.env.NODE_ENV === 'production';
-console.log(isProduction);
+console.log(`Production vendor build: ${isProduction}`);
 
 module.exports = {
   mode: isProduction ? 'production' : 'development',

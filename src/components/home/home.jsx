@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+// Image usage example
+
 class Home extends React.Component {
   renderHome() {
     return (
@@ -8,6 +10,7 @@ class Home extends React.Component {
         <p>
           Insert your components here...
         </p>
+        <img src="imgs/favicon.png" alt=""/>
       </div>
     );
   };
