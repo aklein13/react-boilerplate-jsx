@@ -1,8 +1,9 @@
-export const startRequest = (initialData, action, attrs={},
+export const startRequest = (initialData, action, attrs = {},
                              params = {}, method = 'GET', postData = null) => {
   return (dispatch) => {
     dispatch(StartedCallback(action, attrs, params, postData));
     const urlParams = encodeQueryData(params);
+    method = method.toUpperCase();
     const requestData = {
       method,
       headers: {},
@@ -15,7 +16,7 @@ export const startRequest = (initialData, action, attrs={},
       }
     }
     if (
-      (method.toUpperCase() === 'POST' || method.toUpperCase() === 'PUT' || method.toUpperCase() === 'PATCH')
+      (method === 'POST' || method === 'PUT' || method === 'PATCH')
       && postData
     ) {
       requestData.headers['content-type'] = 'application/json';
@@ -29,13 +30,13 @@ export const startRequest = (initialData, action, attrs={},
             return dispatch(SuccessCallback(res, action, attrs, params, postData));
           }
           return res.json()
-            .then((res) => dispatch(SuccessCallback(res, action, attrs, params, postData)));
+            .then((result) => dispatch(SuccessCallback(result, action, attrs, params, postData)));
         } else {
           return res.json()
-            .then((res) => dispatch(FailureCallback(res, action, attrs, params, postData)));
+            .then((result) => dispatch(FailureCallback(result, action, attrs, params, postData)));
         }
       })
-      .catch((err) => dispatch(FailureCallback(err, action, attrs, params, postData)));
+      .catch((error) => dispatch(FailureCallback(error, action, attrs, params, postData)));
   };
 };
 

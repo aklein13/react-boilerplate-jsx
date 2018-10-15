@@ -28,7 +28,7 @@ function configureStore({}) {
   const createdStore = process.env.NODE_ENV === 'production'
     ? createStore(reducer, initialState, compose(applyMiddleware(ReduxPromise, thunk)))
     : createStore(reducer, initialState,
-      compose(applyMiddleware(logger, ReduxPromise, thunk),
+      compose(applyMiddleware(ReduxPromise, thunk, logger),
         window.devToolsExtension ? window.devToolsExtension() : (f) => f)
     );
 
