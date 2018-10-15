@@ -1,10 +1,20 @@
-# React JS Boilerplate
+# React JSX Boilerplate
 
-# Instruction:
+
+# Instruction
+## Install:
 1. git clone
 2. yarn
 3. yarn buildvendor
-4. yarn start
+
+## Development
+1. yarn start
+2. http://localhost:8080
+
+# Production build:
+1. yarn build
+2. output in ./dist
+
 
 # Includes:
 - React

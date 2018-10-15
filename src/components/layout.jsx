@@ -22,8 +22,6 @@ class Layout extends React.Component {
   }
 
   render() {
-    // props.children.props.location.pathname
-    // state.mobile
     return (
       <div className="container">
         <NavBar/>

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 // Image usage example
 
-class Home extends React.Component {
+class Home extends React.PureComponent {
   renderHome() {
     return (
       <div>

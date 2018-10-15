@@ -14,14 +14,14 @@ module.exports = {
       'react-router',
       'react-router-redux',
       'redux',
-      'redux-thunk'
-    ]
+      'redux-thunk',
+    ],
   },
   output: {
     path: path.resolve('./assets'),
     filename: '[name].js',
-    library: "[name]_[hash]",
-    libraryTarget: "var"
+    library: '[name]_[hash]',
+    libraryTarget: 'var',
   },
   optimization: {
     minimize: isProduction,
@@ -32,7 +32,7 @@ module.exports = {
     new webpack.DllPlugin({
       path: './manifest.json',
       name: '[name]_[hash]',
-      context: __dirname
-    })
-  ]
+      context: __dirname,
+    }),
+  ],
 };

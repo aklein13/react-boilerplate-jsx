@@ -1,8 +1,7 @@
 import React from 'react';
-/* React Router */
 import {Provider} from 'react-redux';
 import {IndexRoute, Router} from 'react-router';
-import {BrowseRouter, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 
 /* Router dependencies preparing */
 import {history, store} from './prepare';
@@ -12,7 +11,7 @@ import config from './config';
 
 /* Components */
 import {Layout, NotFound} from './components';
-import {Home} from './components/home';
+import Home from './components/home/home';
 
 /* Routes */
 const {urlPrefix} = config;

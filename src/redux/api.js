@@ -1,19 +1,12 @@
-import axios from 'axios';
-import {isNull} from "util";
-
 export const startRequest = (initialData, action, attrs={},
                              params = {}, method = 'GET', postData = null) => {
   return (dispatch) => {
     dispatch(StartedCallback(action, attrs, params, postData));
     const urlParams = encodeQueryData(params);
-    let requestData = {
+    const requestData = {
       method,
       headers: {},
     };
-    if (!isNull(postData) && postData.Authorization) {
-      requestData.headers['Authorization'] = postData.Authorization;
-      delete postData.Authorization;
-    }
 
     let url = `${action.url}?${urlParams}`;
     for (let attr in attrs) {
@@ -21,7 +14,6 @@ export const startRequest = (initialData, action, attrs={},
         url = url.replace(`{${attr}}`, attrs[attr]);
       }
     }
-
     if (
       (method.toUpperCase() === 'POST' || method.toUpperCase() === 'PUT' || method.toUpperCase() === 'PATCH')
       && postData

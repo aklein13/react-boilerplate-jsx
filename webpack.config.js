@@ -6,8 +6,8 @@ module.exports = {
   entry: {
     app: [
       'react-hot-loader/patch',
-      './src/app'
-    ]
+      './src/app',
+    ],
   },
   output: {
     path: path.resolve('./dist'),
@@ -19,30 +19,30 @@ module.exports = {
     new webpack.DllReferencePlugin({
       context: __dirname,
       manifest: require('./manifest.json'),
-      sourceType: 'var'
+      sourceType: 'var',
     }),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   devServer: {
     historyApiFallback: true,
     hotOnly: true,
     contentBase: 'assets/',
     host: '0.0.0.0',
-    port: 8080
+    port: 8080,
   },
   module: {
     rules: [
       {
         test: /.*\.json$/,
-        loader: 'json-loader'
+        loader: 'json-loader',
       },
       {
         test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
-        loader: 'url'
+        loader: 'url',
       },
       {
         test: /\.js$/,
@@ -53,18 +53,18 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loaders: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
         loaders: ['style-loader', 'css-loader', 'sass-loader'],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
         loaders: ['style-loader', 'css-loader'],
-        exclude: /node_modules/
-      }
-    ]
-  }
+        exclude: /node_modules/,
+      },
+    ],
+  },
 };

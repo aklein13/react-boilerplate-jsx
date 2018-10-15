@@ -6,8 +6,8 @@ module.exports = Object.assign({}, config, {
   mode: 'production',
   entry: {
     app: [
-      './src/app'
-    ]
+      './src/app',
+    ],
   },
   optimization: {
     minimize: true,
@@ -16,13 +16,13 @@ module.exports = Object.assign({}, config, {
     new CopyWebpackPlugin([
       {
         context: 'assets',
-        from: '**/*'
+        from: '**/*',
       },
     ]),
     new webpack.DllReferencePlugin({
       context: __dirname,
       manifest: require('./manifest.json'),
-      sourceType: 'var'
+      sourceType: 'var',
     }),
   ],
 });
