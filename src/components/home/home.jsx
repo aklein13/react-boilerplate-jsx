@@ -1,23 +1,32 @@
-import React from 'react';
+import * as React from 'react';
 import {connect} from 'react-redux';
+import {simpleAction} from '../../redux/modules/auth/actions';
 
-// Image usage example
+// Sample Home component with basic redux action call
 
 class Home extends React.PureComponent {
-  renderHome() {
-    return (
-      <div>
-        <p>
-          Insert your components here...
-        </p>
-        <img src="imgs/favicon.png" alt=""/>
-      </div>
-    );
-  };
+  componentDidMount() {
+    setTimeout(this.props.simpleAction, 3000);
+  }
 
   render() {
-    return this.renderHome();
+    return (
+      <div>
+        <p>Insert your components here...</p>
+        <p>{this.props.isFetching ? 'Fetching...' : 'Done'}</p>
+      </div>
+    );
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    isFetching: state.auth.isFetching,
+  };
+};
+
+const mapDispatchToProps = {
+  simpleAction,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

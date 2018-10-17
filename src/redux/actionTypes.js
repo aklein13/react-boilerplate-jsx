@@ -2,7 +2,7 @@ import config from '../config/index';
 
 export const ROOT_URL = config.apiRootUrl;
 
-export const ACTIONS = {
+export const API_ACTIONS = {
   API_ACTION: {
     action: 'api_action',
     url: `${ROOT_URL}auth/convert-token/`,
@@ -10,5 +10,8 @@ export const ACTIONS = {
     successRequest: 'api_action/REQUEST_SUCCESS',
     failureRequest: 'api_action/REQUEST_FAILURE',
   },
+};
+
+export const ACTIONS = {
   SIMPLE_ACTION: 'simple_action',
 };
