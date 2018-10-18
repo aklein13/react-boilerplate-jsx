@@ -1,5 +1,5 @@
-import {ACTIONS, API_ACTIONS} from '../../actionTypes';
-import {startRequest} from '../../api';
+import { ACTIONS, API_ACTIONS } from '../../actionTypes';
+import { startRequest } from '../../api';
 
 export function apiCall() {
   const action = API_ACTIONS.API_ACTION;
@@ -9,9 +9,9 @@ export function apiCall() {
   return startRequest({}, action, attrs, params, 'GET', postData);
 }
 
-export function simpleAction() {
+export function simpleAction(value) {
   return {
     type: ACTIONS.SIMPLE_ACTION,
-    payload: 'test',
+    payload: value,
   };
 }

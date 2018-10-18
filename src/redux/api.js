@@ -27,16 +27,16 @@ export const startRequest = (initialData, action, attrs = {},
       .then((res) => {
         if (res.ok) {
           if (res.status === 204) {
-            return dispatch(SuccessCallback(res, action, attrs, params, postData));
+            return dispatch(SuccessCallback(res, action, attrs, params, url, postData));
           }
           return res.json()
-            .then((result) => dispatch(SuccessCallback(result, action, attrs, params, postData)));
+            .then((result) => dispatch(SuccessCallback(result, action, attrs, params, url, postData)));
         } else {
           return res.json()
-            .then((result) => dispatch(FailureCallback(result, action, attrs, params, postData)));
+            .then((result) => dispatch(FailureCallback(result, action, attrs, params, url, postData)));
         }
       })
-      .catch((error) => dispatch(FailureCallback(error, action, attrs, params, postData)));
+      .catch((error) => dispatch(FailureCallback(error, action, attrs, params, url, postData)));
   };
 };
 
@@ -50,22 +50,24 @@ export function StartedCallback(action, attrs, params, postData) {
   };
 }
 
-export function SuccessCallback(res, action, attrs, params, postData) {
+export function SuccessCallback(res, action, attrs, params, url, postData) {
   return {
     type: action.successRequest,
     res,
     attrs,
     params,
+    url,
     postData,
   };
 }
 
-export function FailureCallback(message, action, attrs, params, postData) {
+export function FailureCallback(message, action, attrs, params, url, postData) {
   return {
     type: action.failureRequest,
     errorMessage: message,
     attrs,
     params,
+    url,
     postData,
   };
 }

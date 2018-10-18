@@ -1,4 +1,4 @@
-import {auth} from './redux/modules/auth/reducers';
+import {home} from './redux/modules/home/reducers';
 
 /* Redux */
 import {routerReducer, syncHistoryWithStore} from 'react-router-redux';
@@ -17,7 +17,7 @@ import config from './config';
 /* Combine Reducers */
 const reducer = combineReducers({
   routing: routerReducer,
-  auth,
+  home,
 });
 
 /* Initial the store */
@@ -34,10 +34,9 @@ function configureStore({}) {
   const {hot} = module;
   if (hot) {
     hot.accept('./reducers', () => {
-      const auth = require('./redux/modules/auth/reducers');
       const nextReducer = combineReducers({
         routing: routerReducer,
-        auth,
+        home,
       });
       createdStore.replaceReducer(nextReducer);
     });
